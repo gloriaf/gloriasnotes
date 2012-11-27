@@ -1,0 +1,21 @@
+<h1> Show Topic <%= @topic.name %></h1>
+
+<p>
+  <b>Name:</b> <%= @topic.name %>
+</p>
+ 
+<p>
+  <b>Topic type:</b> <%= @topic.topic_type %>
+</p>
+ 
+<p>
+  <b>Description:</b> <%= @topic.description %>
+</p> 
+
+<p>
+  <b>Documentation:</b> <%= @topic.documentation %>
+</p>
+ 
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>
+
