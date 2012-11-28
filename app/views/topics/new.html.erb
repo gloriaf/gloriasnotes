@@ -1,18 +1,24 @@
+<% provide(:title, 'New topic') %>
 <h1> New Topic </h1>
-
-  <%= form_for(@topic) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<div class="row">
+  <div class="span6 offset3">
     
-    <%= f.label :topic_type %>
-    <%= f.text_field :topic_type %>
+    <%= form_for(@topic) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
     
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+      <%= f.label :topic_type %>
+      <%= f.text_field :topic_type %>
     
-    <%= f.label :documentation %>
-    <%= f.text_field :documentation %>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
     
-    <%= f.submit "Create" %>
+      <%= f.label :documentation %>
+      <%= f.text_field :documentation %>
+    
+      <%= f.label ' ' %>
+      <%= f.submit "Create", class: "btn btn-large btn-primary" %>
     
   <% end %>
+  </div>
+</div>

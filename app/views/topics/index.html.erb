@@ -1,27 +1,35 @@
-<h1>Listing Topics</h1>
+<% provide(:title, 'Topic list') %>
+<div class="center hero-unit">
+  <h1><font color="cc3399">Gloria's Notes</font></h1>
+  <h2>
+    This list are my personal notes
+    on various topics of interest to me.
+  </h2>
+</div>
+<div class="hero-unit">
+  <%= will_paginate %>
+  <table class="topics">
+    <tr style="font-size: 1.2em">
+      <th><u>Name</u></th>
+      <th><u>Topic type</u></th>
+      <th><u>Description</u></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    
+    <% @topics.each do |topic| %>
+      <tr style="font-size: 1.1em">
+        <td><%= topic.name %></td>
+        <td><%= topic.topic_type %></td>
+        <td><%= topic.description %></td>
+        <td><%= link_to 'Show', topic_path(topic) %></td>
+        <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
+        <td><%= link_to 'Remove', topic, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+   </table>
+    <%= will_paginate %>
  
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Topic type</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
- 
-<% @topics.each do |topic| %>
-  <tr>
-    <td><%= topic.name %></td>
-    <td><%= topic.topic_type %></td>
-    <td><%= topic.description %></td>
-    <td><%= link_to 'Show', topic_path(topic) %></td>
-    <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-    <td><%= link_to 'Remove', topic, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
- 
-<br />
- 
-<%= link_to 'New topic', new_topic_path %>
+  <li class="center" style="font-size: 1.2em"><%= link_to 'New topic', new_topic_path %></li>
+</div>
