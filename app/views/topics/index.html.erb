@@ -7,12 +7,11 @@
   </h2>
 </div>
 <div class="hero-unit">
-  <%= will_paginate %>
-  <table class="topics">
+  <table class="pretty">
     <tr style="font-size: 1.2em">
-      <th><u>Name</u></th>
-      <th><u>Topic type</u></th>
-      <th><u>Description</u></th>
+      <th><b><%= sortable "name" %></b></th>
+      <th><b><%= sortable "topic_type" %></b></th>
+      <th><b><%= sortable "description" %></b></th>
       <th></th>
       <th></th>
       <th></th>
@@ -29,7 +28,6 @@
       </tr>
     <% end %>
    </table>
-    <%= will_paginate %>
  
   <li class="center" style="font-size: 1.2em"><%= link_to 'New topic', new_topic_path %></li>
 </div>

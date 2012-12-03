@@ -1,4 +1,7 @@
 class TopicsController < ApplicationController
+
+  helper_method :sort_column, :sort_direction
+
   def new
     @topic = Topic.new
   end
@@ -7,11 +10,13 @@ class TopicsController < ApplicationController
     @topic = Topic.new(params[:topic])
     if @topic.save
       redirect_to topics_path
+    else
+      render new_topic_path
     end  
   end
   
   def index
-    @topics = Topic.paginate(page: params[:page])
+    @topics = Topic.order(sort_column + ' ' + sort_direction )
   end
   
   def show
@@ -24,15 +29,26 @@ class TopicsController < ApplicationController
   
   def update
     @topic = Topic.find(params[:id])
-    @topic.update_attributes!(params[:topic])
-    flash[:notice] = "#{@topic.name} was successfuly updated"
-    redirect_to topic_path(@topic)
+    if @topic.update_attributes(params[:topic])
+#      flash[:notice] = "#{@topic.name} was successfuly updated"
+      redirect_to topic_path(@topic)
+    else
+      render 'edit'
+    end
   end
   
   def destroy
     Topic.find(params[:id]).destroy
     flash[:notice] = "Topic deleted"
     redirect_to topics_path
+  end
+  
+  private
+  def sort_column
+    Topic.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
   
 end

@@ -1,4 +1,6 @@
 Gloriasnotes::Application.routes.draw do
-  resources :topics, :only => [:new, :create, :index, :show, :edit, :update, :destroy]
+  resources :topics
+
+  root :to => redirect('/topics')
 
 end 

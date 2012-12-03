@@ -4,6 +4,8 @@
   <div class="span6 offset3">
     
     <%= form_for(@topic) do |f| %>
+      <%= render 'shared/error_messages' %>
+      
       <%= f.label :name %>
       <%= f.text_field :name %>
     
@@ -16,7 +18,6 @@
       <%= f.label :documentation %>
       <%= f.text_field :documentation %>
     
-      <%= f.label ' ' %>
       <%= f.submit "Create", class: "btn btn-large btn-primary" %>
     
   <% end %>

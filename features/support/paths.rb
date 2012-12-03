@@ -6,15 +6,16 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-    when /the new topic page/
+    when /^the new topic page/
       new_topic_path
-    when /the topic list page/
+    when /^the topic list page/
       topics_path
-    when /the show page for "([^"]*)"$/
+    when /^the show page for "([^"]*)"$/
       topic_path(Topic.find_by_name($1).id)
-    when /the edit page for "([^"]*)"$/
+    when /^the edit page for "([^"]*)"$/
       edit_topic_path(Topic.find_by_name($1).id)
-
+    when /^the new page/
+      '/topics'
     else
       begin
         page_name =~ /^the (.*) page$/

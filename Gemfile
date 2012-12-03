@@ -16,7 +16,6 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
-  gem 'factory_girl'
   gem 'rspec-rails'
   gem 'simplecov'
 end
@@ -24,6 +23,7 @@ end
 group :test do
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
+  gem 'factory_girl_rails'
 end
 
 gem 'sqlite3'

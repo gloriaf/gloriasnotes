@@ -17,7 +17,17 @@ Feature: User manges topics
 	And I fill in "Description" with "Version control"
 	When I press "Create"
 	Then I should be on the topic list page
-	And I should see "Cucumber"
+	And I should see "Git"
+
+    Scenario: User not add a new topic	    
+        Given I go to the new topic page
+	And I fill in "Name" with "Test"
+	And I fill in "Topic type" with "blank"
+	When I press "Create"
+	Then I should be on the new page
+	And I should not see "Test"
+	And I should see an error message
+
     
     Scenario: Show topic
 	Given I am on the topic list page
@@ -34,8 +44,11 @@ Feature: User manges topics
 	When I press "Update topic"
 	Then I should be on the show page for "Cucumber"
 
-#    Scenario: delete topic
-#	Given I am on the topic list page
-#	When I click on "Remove" link for "Cucumber"
-#	Then I am on the topic list page
-#	And I should not see "Cucumber"
+    Scenario: Not update topic
+	Given I am on the topic list page
+	When I go to the edit page for "Cucumber"
+	Then I should see "Edit Topic"
+	And I fill in "Name" with ""
+	When I press "Update topic"
+	Then I should see an error message
+
