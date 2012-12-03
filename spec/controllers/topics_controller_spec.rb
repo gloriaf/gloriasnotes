@@ -37,26 +37,28 @@ describe TopicsController do
   end
 
   
-  describe "#index" do
-    it "should be successful" do
+  describe "#index - GET index" do
+    it "populates an array of topics" do
+      topic = FactoryGirl.create(:topic)
       get :index
       response.should be_success
+      assigns(:topics).should eq([topic])
     end
-    it "should assign a list of existing books" do
-      Topic.create!(:name => "Cucumber", :topic_type => "Tool", :description => "BDD", :documentation => "")
+    it "should rendes the :index view" do
       get :index
-      assigns(:topics).should_not be nil
-      assigns(:topics).length.should ==1
+      response.should render_template :index
     end
   end
   
-  describe "#show" do
-    before { @topic = Topic.create!(:name => "Cucumber", :topic_type => "Tool", :description => "BDD", :documentation => "") }
-    before { get :show, :id => @topic.id }
-
-    it "should be in the rigth detail page" do
-      response.should be_success
-      assigns(:topic).name.should == "Cucumber"
+  describe "#show - GET show" do
+    it "should assigns the requested topic to @topic" do
+      topic = FactoryGirl.create(:topic)
+      get :show, id: topic
+      assigns(:topic).should eq(topic) 
+    end
+    it "should renders the :show view" do
+      get :show, id: FactoryGirl.create(:topic)
+      response.should render_template :show
     end
   end
   
@@ -99,13 +101,13 @@ describe TopicsController do
     end
   end
 
- describe "#delete - DELETE destroy" do
+  describe "#delete - DELETE destroy" do
     before :each do
       @topic = FactoryGirl.create(:topic)
     end
     
     it "should delete the topic" do
-      expect{
+      expect{ 
         delete :destroy, id: @topic
       }.to change(Topic, :count).by(-1)
     end
@@ -113,6 +115,27 @@ describe TopicsController do
       delete :destroy, id: @topic
       response.should redirect_to(topics_path)
     end
- end
- 
+  end
+
+  describe "sort index by column and direcction parameters" do
+    before :each do
+      @topics = [ FactoryGirl.create(:topic, name: "Cucumber"), FactoryGirl.create(:topic, name: "Git") ]
+    end
+    it "should call de model method that present de index with the apropiate parameters" do
+      Topic.should_receive(:order).with('name asc').and_return(@topics)
+      post :index, {:sort_column => 'name', :sort_direction => 'asc'}
+    end
+    describe "valid data order" do
+      before :each do
+        Topic.should_receive(:order).with('name asc').and_return(@topics)
+        post :index, {:sort_column => 'name', :sort_direction => 'asc'}
+      end
+      it "should select de index template for rendering" do
+        response.should render_template :index
+      end
+      it "should make the results available to that template" do
+        assigns(:topics).should eq(@topics)
+      end
+    end
+  end
 end
