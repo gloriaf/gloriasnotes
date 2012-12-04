@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
 
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column, :sort_direction, :filter_types
 
   def new
     @topic = Topic.new
@@ -16,7 +16,14 @@ class TopicsController < ApplicationController
   end
   
   def index
-    @topics = Topic.order(sort_column + ' ' + sort_direction )
+    @all_topic_types = Topic.all_topic_types
+    @selected_topic_types = params[:topics_types] || {}
+    
+    if @selected_topic_types == {}
+      @selected_topic_types = Hash[ @all_topic_types.map { |type| [type, type]}]
+    end
+
+    @topics = Topic.find_all_by_topic_type(@selected_topic_types.keys, :order => sort_column + ' ' + sort_direction )
   end
   
   def show
@@ -50,5 +57,4 @@ class TopicsController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
-  
 end

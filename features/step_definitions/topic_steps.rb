@@ -21,3 +21,17 @@ Then /^I should see "(.*)" before "(.*)"$/ do |e1, e2|
   body = page.html
   assert body.index(e1) < body.index(e2)
 end
+
+When /^I (un)?check the following topics_types: (.*?)$/ do | uncheck, types_list|
+  types_list.split(',').each do |type|
+    if uncheck
+      uncheck("topics_types[#{type}]")
+    else
+      check("topics_types[#{type}]")
+    end
+  end
+end
+
+Then /^I should see all the topics$/ do
+    page.all('table tr').count.should == Topic.count() + 1
+end

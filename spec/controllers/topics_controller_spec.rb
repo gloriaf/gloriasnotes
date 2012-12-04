@@ -120,15 +120,16 @@ describe TopicsController do
   describe "sort index by column and direcction parameters" do
     before :each do
       @topics = [ FactoryGirl.create(:topic, name: "Cucumber"), FactoryGirl.create(:topic, name: "Git") ]
+      @selected_topic_types = Hash[ 'Tool', 'Tool']
     end
-    it "should call de model method that present de index with the apropiate parameters" do
-      Topic.should_receive(:order).with('name asc').and_return(@topics)
-      post :index, {:sort_column => 'name', :sort_direction => 'asc'}
+    it "should call the model method that present de index with the apropiate parameters" do
+      Topic.should_receive(:find_all_by_topic_type).with(@selected_topic_types.keys, {:order => 'name asc'}).and_return(@topics)
+      post :index, {:sort_column => 'name', :sort_direction => 'asc', :topics_types => @selected_topic_types}
     end
     describe "valid data order" do
       before :each do
-        Topic.should_receive(:order).with('name asc').and_return(@topics)
-        post :index, {:sort_column => 'name', :sort_direction => 'asc'}
+        Topic.should_receive(:find_all_by_topic_type).with(@selected_topic_types.keys , {:order => 'name asc'}).and_return(@topics)
+        post :index, {:sort_column => 'name', :sort_direction => 'asc', :topics_types => @selected_topic_types}
       end
       it "should select de index template for rendering" do
         response.should render_template :index
@@ -136,6 +137,30 @@ describe TopicsController do
       it "should make the results available to that template" do
         assigns(:topics).should eq(@topics)
       end
+    end
+  end
+  
+  describe "filter topics action" do
+    before :each do
+      FactoryGirl.create(:topic, name: "Rails", topic_type: 'Language')
+      @topics=[FactoryGirl.create(:topic, name: "Cucumber", topic_type: 'Tool')]
+      @selected_topic_types = Hash[ 'Tool', 'Tool']
+    end
+
+    it "should call the model method that filter de topics by topic type" do
+      Topic.should_receive(:find_all_by_topic_type).with(@selected_topic_types.keys, {:order => 'name asc'}).and_return(@topics)
+      post :index, {:sort_column => 'name', :sort_direction => 'asc', :topics_types => @selected_topic_types}
+    end
+    it "should select de index template for rendering" do
+        Topic.should_receive(:find_all_by_topic_type).with(@selected_topic_types.keys , {:order => 'name asc'}).and_return(@topics)
+        post :index, {:sort_column => 'name', :sort_direction => 'asc', :topics_types => @selected_topic_types}
+        response.should render_template :index
+    end
+    it "should make the results available to that template" do
+        Topic.should_receive(:find_all_by_topic_type).with(@selected_topic_types.keys , {:order => 'name asc'}).and_return(@topics)
+        post :index, {:sort_column => 'name', :sort_direction => 'asc', :topics_types => @selected_topic_types}
+        assigns[:topics].should_not be_empty
+        assigns[:topics].should have(1).records
     end
   end
 end
