@@ -52,3 +52,8 @@ Feature: User manges topics
 	When I press "Update topic"
 	Then I should see an error message
 
+    Scenario: User see notes from topics list
+	Given I am on the topic list page
+	When I go to the notes page for "Cucumber"
+	Then I should be on the notes list page
+	And I should see Notes about "Cucumber"

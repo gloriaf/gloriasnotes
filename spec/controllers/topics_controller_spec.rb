@@ -62,6 +62,17 @@ describe TopicsController do
     end
   end
   
+  describe "#edit" do
+    before :each do
+      @topic = FactoryGirl.create(:topic, name: "Ruby")
+    end
+    it "located the requested @topic" do
+      put :edit, id: @topic, topic: FactoryGirl.attributes_for(:topic)
+      assigns(:topic).should eq(@topic)
+    end
+    
+  end
+  
   describe "#edit - PUT update" do
     before :each do
       @topic = FactoryGirl.create(:topic, name: "Ruby")

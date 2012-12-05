@@ -35,3 +35,4 @@ end
 Then /^I should see all the topics$/ do
     page.all('table tr').count.should == Topic.count() + 1
 end
+
