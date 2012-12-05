@@ -16,6 +16,10 @@ module NavigationHelpers
       edit_topic_path(Topic.find_by_name($1).id)
     when /^the new page/
       '/topics'
+    when /^the new page/
+      '/topics'
+    when /^the notes page for "([^"]*)"$/
+      topic_notes_path(Topic.find_by_name($1).id)
     else
       begin
         page_name =~ /^the (.*) page$/

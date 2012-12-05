@@ -1,5 +1,6 @@
 class Topic < ActiveRecord::Base
   attr_accessible :description, :documentation, :name, :topic_type
+  has_many :notes, dependent: :destroy
   
   before_save { |topic| topic.name = name.downcase.capitalize }
   

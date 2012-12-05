@@ -1,10 +1,17 @@
 FactoryGirl.define do
 # Crea topicos genericos
-  factory :topic do |f|
-    f.name  { "Topic #{f}" }
-    f.topic_type    "Tool"
-    f.description   "description"
-    f.documentation "documentation"
+  factory :topic do
+    sequence(:name) { |n| "Topic #{n}" }
+    topic_type    "Tool"
+    description   "description"
+    documentation "documentation"
+  end
+  
+
+  factory :note do 
+    sequence(:sequence) {|n| n + 100 }   
+    text   "description"
+    topic
   end
 
 end

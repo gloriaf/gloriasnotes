@@ -2,10 +2,14 @@ require 'spec_helper'
 
 describe Topic do
   before { @topic = Topic.new(:name => "Cucumber", :topic_type => "Tool", :description => "BDD", :documentation => " " ) }
+
   subject { @topic }
+
   it { should respond_to(:name) }
   it { should respond_to(:topic_type) }
-  
+  # notes
+  it { should respond_to(:notes)}
+
   it { should be_valid }
   
   # name
@@ -54,6 +58,21 @@ describe Topic do
   describe "when description is too long" do
     before { @topic.description = "a" * 241}
     it { should_not be_valid }
+  end
+
+  # notes
+  describe "note associations" do
+    before { @topic.save }
+    let!(:grater_note) do
+      FactoryGirl.create(:note, topic: @topic, sequence: 200)
+    end
+    let!(:lower_note) do
+      FactoryGirl.create(:note, topic: @topic, sequence: 100)
+    end
+    
+    it "should have the lower note before grater" do
+      @topic.notes.should == [lower_note, grater_note]
+    end
   end
 
 end

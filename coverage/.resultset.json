@@ -21,8 +21,8 @@
         null,
         null,
         1,
-        1,
-        1,
+        0,
+        0,
         0,
         0,
         null,
@@ -98,8 +98,9 @@
       "/Users/marygloriafernandezfernandez/Personal/pabilos/gloriasnotes/app/models/topic.rb": [
         1,
         1,
+        1,
         null,
-        31,
+        43,
         null,
         1,
         1,
@@ -110,8 +111,19 @@
         null,
         null,
         null
+      ],
+      "/Users/marygloriafernandezfernandez/Personal/pabilos/gloriasnotes/app/models/note.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1354638874
+    "timestamp": 1354720811
   }
 }

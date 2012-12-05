@@ -28,6 +28,7 @@ class TopicsController < ApplicationController
   
   def show
     @topic = Topic.find(params[:id])
+    @notes = @topic.notes.all
   end
   
   def edit
