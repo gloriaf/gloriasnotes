@@ -73,6 +73,15 @@ describe Topic do
     it "should have the lower note before grater" do
       @topic.notes.should == [lower_note, grater_note]
     end
+    
+    it "should destroy associated notes" do
+      notes = @topic.notes.dup
+      @topic.destroy
+      notes.should_not be_empty
+      notes.each do |note|
+        Note.find_by_id(note.id).should be_nil
+      end
+    end
   end
 
 end

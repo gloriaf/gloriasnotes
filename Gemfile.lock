@@ -179,6 +179,7 @@ DEPENDENCIES
   cucumber-rails
   cucumber-rails-training-wheels
   database_cleaner
+  factory_girl
   factory_girl_rails
   faker
   jquery-rails

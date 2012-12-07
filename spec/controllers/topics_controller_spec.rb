@@ -60,6 +60,13 @@ describe TopicsController do
       get :show, id: FactoryGirl.create(:topic)
       response.should render_template :show
     end
+    it "should have notes" do
+      topic = FactoryGirl.create(:topic)
+      n1 = FactoryGirl.create(:note, topic: topic, sequence: 100, text: "text 1") 
+      n2 = FactoryGirl.create(:note, topic: topic, sequence: 200, text: "text 2")
+      get :show, id: topic
+      topic.notes.count.should == 2
+    end
   end
   
   describe "#edit" do

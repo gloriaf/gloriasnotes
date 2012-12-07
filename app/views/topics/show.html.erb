@@ -16,9 +16,37 @@
       </p>
       
       <span style="font-size: 1.2em">
-        <%= link_to 'Edit', edit_topic_path(@topic) %> |
-        <%= link_to 'Back', topics_path %>
+        <%= link_to 'Edit', edit_topic_path(@topic) %>  | 
+        <%= link_to 'Back', topics_path %>  |  
+        <%= link_to 'New Note', new_topic_note_path(@topic) %>
       </span>
     </aside>
 
+    <div class="span8">
+    <% if @topic.notes.any? %>
+      <h3>Notes (<%= @topic.notes.count %>)</h3>
+      <ol class="notes">
+        <table class="pretty">
+          <tr style="font-size: 1.2em">
+          <th><b>Sequence</b></th>
+          <th><b>Note </b></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+    
+        <% @notes.each do |note| %>
+          <tr style="font-size: 1.1em">
+            <td><%= note.sequence %></td>
+            <td><%= note.text %></td>
+            <td><%= link_to 'Show', 'topic_notes_path(topic, note)' %></td>
+            <td><%= link_to 'Edit', 'edit_topic_note_path(topic, note)' %></td>
+            <td><%= link_to 'Remove', 'topic_note_path(topic, note)', :confirm => 'Are you sure?', :method => :delete %></td>
+          </tr>
+        <% end %>
+       </table>
+      </ol>
+      <%= will_paginate @notes %>
+    <% end %>
+  </div>
 </div>

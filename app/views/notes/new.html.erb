@@ -1,0 +1,15 @@
+<% provide(:title, 'New Note') %>
+<h1> New Note </h1>
+<div class="row">
+  <div class="span6 offset3">
+    
+    <%= form_for @topic do |t| %>
+      <%= t.fields_for :notes do |n| %>
+       <% if n.object.active? %>
+         Text: <%= n.text_field :text %>
+       <% end %>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

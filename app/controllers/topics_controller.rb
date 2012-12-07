@@ -28,7 +28,7 @@ class TopicsController < ApplicationController
   
   def show
     @topic = Topic.find(params[:id])
-    @notes = @topic.notes.all
+    @notes = @topic.notes.paginate(page: params[:page])
   end
   
   def edit

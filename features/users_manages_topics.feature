@@ -3,11 +3,12 @@ Feature: User manges topics
     As an user
     I want add, update, delete, show and see a list of topics
     
-    Background: topics in database
+    Background: topics and notes in database
 	Given the following topics exists:
 	| name     | topic_type | description |
 	| Cucumber | Tool       | BDD         |
 	| Rspec    | Tool       | TDD         |
+        And the following notes exists for "Cucumber"
 	
     Scenario: User add a new topic	    
         Given I go to the new topic page
@@ -27,7 +28,6 @@ Feature: User manges topics
 	Then I should be on the new page
 	And I should not see "Test"
 	And I should see an error message
-
     
     Scenario: Show topic
 	Given I am on the topic list page
@@ -35,8 +35,7 @@ Feature: User manges topics
 	Then I should see "Cucumber"
 #	Then show me the page
 	And I should see "Tool"
-	And I should see "BDD"
-	Then I should see the notes for "Cucumber"
+	And I should see the 2 notes 
     
     Scenario: Edit topic
 	Given I am on the topic list page

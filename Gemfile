@@ -25,6 +25,7 @@ group :test do
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
   gem 'factory_girl_rails'
+  gem 'factory_girl'
 end
 
 group :assets do
