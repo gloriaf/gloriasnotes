@@ -4,26 +4,12 @@
   <div class="span6 offset3">
     
     <%= form_for(@topic) do |f| %>
-      <%= render 'shared/error_messages' %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    
-      <%= f.label :topic_type %>
-      <%= f.text_field :topic_type %>
-    
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-    
-      <%= f.label :documentation %>
-      <%= f.text_field :documentation %>
+      <%= render 'topic' , f: f %>
     
       <%= f.submit "Update topic", class: "btn btn-large btn-primary" %>
     
     <% end %>
 
-    <p style="font-size: 1.2em">
-      <%= link_to 'Back', topics_path %>
-    </p>  
+    <%= render 'back' %>
   </div>
 </div>

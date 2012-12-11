@@ -39,9 +39,9 @@
           <tr style="font-size: 1.1em">
             <td><%= note.sequence %></td>
             <td><%= note.text %></td>
-            <td><%= link_to 'Show', 'topic_notes_path(topic, note)' %></td>
-            <td><%= link_to 'Edit', 'edit_topic_note_path(topic, note)' %></td>
-            <td><%= link_to 'Remove', 'topic_note_path(topic, note)', :confirm => 'Are you sure?', :method => :delete %></td>
+            <td><%= link_to 'Show',   topic_note_path(@topic, note) %></td>
+            <td><%= link_to 'Edit',   edit_topic_note_path(@topic, note) %></td>
+            <td><%= link_to 'Remove', topic_note_path(@topic, note), :confirm => 'Are you sure?', :method => :delete %></td>
           </tr>
         <% end %>
        </table>

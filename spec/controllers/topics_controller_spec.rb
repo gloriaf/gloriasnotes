@@ -140,6 +140,7 @@ describe TopicsController do
       @topics = [ FactoryGirl.create(:topic, name: "Cucumber"), FactoryGirl.create(:topic, name: "Git") ]
       @selected_topic_types = Hash[ 'Tool', 'Tool']
     end
+    
     it "should call the model method that present de index with the apropiate parameters" do
       Topic.should_receive(:find_all_by_topic_type).with(@selected_topic_types.keys, {:order => 'name asc'}).and_return(@topics)
       post :index, {:sort_column => 'name', :sort_direction => 'asc', :topics_types => @selected_topic_types}

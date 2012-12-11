@@ -20,6 +20,17 @@ module NavigationHelpers
       '/topics'
     when /^the notes page for "([^"]*)"$/
       topic_notes_path(Topic.find_by_name($1).id)
+    when /^the new note page for "([^"]*)"$/
+      topic=Topic.find_by_name($1)
+      new_topic_note_path(topic)
+    when /^the show note page for note "([^"]*)" and "([^"]*)"$/
+      topic=Topic.find_by_name($2)
+      note=topic.notes.find_by_sequence($1)
+      topic_note_path(topic, note)
+    when /^the edit note page for note "([^"]*)" and "([^"]*)"$/
+      topic=Topic.find_by_name($2)
+      note=topic.notes.find_by_sequence($1)
+      edit_topic_note_path(topic, note)
     else
       begin
         page_name =~ /^the (.*) page$/

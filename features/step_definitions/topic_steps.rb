@@ -48,3 +48,8 @@ end
 Then /^I should see the (\d+) notes$/ do |cont|
   page.all('table tr').count.should == Integer(cont) + 1
 end
+
+Given /^I an on (.+)$/ do |page_name|
+  visit path_to(page_name)
+end
+

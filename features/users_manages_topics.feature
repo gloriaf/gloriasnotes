@@ -52,3 +52,11 @@ Feature: User manges topics
 	When I press "Update topic"
 	Then I should see an error message
 
+    Scenario: Add a new note about topic 
+	Given I am on the show page for "Cucumber"
+#	Then show me the page
+	Then I should see "New Note"
+	When I go to the new note page for "Cucumber"
+#	Then show me the page
+	Then I should see "Cucumber"
+	And I should see "Text"
