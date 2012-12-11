@@ -2,24 +2,17 @@
 <h1>Show Note <%= @note.sequence %> about <%= @topic.name%></h1>
 
 <div class="row">
-    <aside class="span8 offset3">
-      <p style="font-size: 1.4em">
-        <b>Sequence:</b> <%= @note.sequence %>
-      </p>
-      <p style="font-size: 1.4em">
-        <b>Text:</b> <%= @note.text%>
-      </p>
-      <p style="font-size: 1.4em">
-        <b>Link 1:</b> <%= @note.link1 %>
-      </p>
-      <p style="font-size: 1.4em">
-        <b>Link 2:</b> <%= @note.link2 %>
-      </p>
+    <aside class="span6 offset3">
+      <p><b>Sequence:</b> <%= @note.sequence %></p>
+      <p><b>Text:</b> <%= @note.text%></p>
+      <p><b>Englis:</b> <%= @note.link1 %></p>
+      <p><b>Spanish:</b> <%= @note.link2 %></p>
       
-      <span style="font-size: 1.2em">
-        <%= link_to 'Edit', edit_topic_note_path(@topic, @note) %>  | 
-        <%= link_to 'Back', topic_path(@topic) %>  |  
-      </span>
+      <li style="font-size: 1.2em">
+        <%= link_to 'Back to notes list', topic_path(@topic) %>  |  
+        <%= link_to 'Edit note', edit_topic_note_path(@topic, @note) %>  |
+        <%= link_to 'Remove note', topic_note_path(@topic, @note), :confirm => 'Are you sure?', :method => :delete %>
+      </li>
     </aside>
 </div>    
  

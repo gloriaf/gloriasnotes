@@ -1,40 +1,51 @@
 <% provide(:title, 'Topic list') %>
-<div class="center hero-unit">
+<div class="hero-unit">
   <h1><font color="cc3399">Gloria's Notes</font></h1>
   <h2>
-    This list are my personal notes
-    on various topics of interest to me.
+    This site contains my personal notes on various topics of interest to me.
   </h2>
 </div>
+  
 <div class="hero-unit">
-  <form style="font-size: 1.4em">
+  <form>
+    Include topic type: 
     <% @all_topic_types.each do |topic_type| %>
-       <%= check_box_tag "topics_types[#{topic_type}]", 1, @selected_topic_types.keys.include?(topic_type) %> 
-       <%= topic_type %>
+      -
+      <%= topic_type %>
+      <%= check_box_tag "topics_types[#{topic_type}]", 1, @selected_topic_types.keys.include?(topic_type) %>
     <% end %>
-    <%= submit_tag 'Refresh', class: "btn btn-small btn-primary" %>
+    
+    <%= submit_tag 'Refresh list', class: "btn btn-small btn-primary" %>
   </form>
   <table class="pretty">
-    <tr style="font-size: 1.2em">
+    <tr>
       <th><b><%= sortable "name" %></b></th>
       <th><b><%= sortable "topic_type" %></b></th>
       <th><b><%= sortable "description" %></b></th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
     
     <% @topics.each do |topic| %>
-      <tr style="font-size: 1.1em">
+      <tr>
         <td><%= topic.name %></td>
         <td><%= topic.topic_type %></td>
         <td><%= topic.description %></td>
-        <td><%= link_to 'Show', topic_path(topic) %></td>
-        <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-        <td><%= link_to 'Remove', topic, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to 'Details & Notes', topic_path(topic) %></td>
       </tr>
     <% end %>
-   </table>
+  </table>
  
-  <li class="center" style="font-size: 1.2em"><%= link_to 'New topic', new_topic_path %></li>
+  <li class="center" style="font-size: 1.2em"><%= link_to 'Add new topic', new_topic_path %></li>
+</div>
+
+<div class="hero-unit">
+  <h3>
+    In the world of software engineering is very important that professionals maintain current and up-to-date on the latest trends of the area in which they operate.
+  </h3>
+  <h3>
+    In this list are presented topics that seem very interesting to me in these times, and that i'm researching and studying.
+  </h3>
+  <h3>
+    The list is not intended to be exhaustive nor accurate, I only want to centralize in a single place points of view and important reminders for me in this process of constant updating that I encounter.
+  </h3>
 </div>

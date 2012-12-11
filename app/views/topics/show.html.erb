@@ -1,51 +1,40 @@
 <% provide(:title, 'Show topic') %>
 <h1> Show Topic <%= @topic.name %></h1>
 <div class="row">
-    <aside class="span8 offset3">
-      <p style="font-size: 1.4em">
-        <b>Name:</b> <%= @topic.name %>
-      </p>
-      <p style="font-size: 1.4em">
-        <b>Topic type:</b> <%= @topic.topic_type %>
-      </p>
-      <p style="font-size: 1.4em">
-        <b>Description:</b> <%= @topic.description %>
-      </p>
-      <p style="font-size: 1.4em">
-        <b>Documentation:</b> <%= @topic.documentation %>
-      </p>
+    <div class="span6 offset3">
+      <p><b>Name: </b><%= @topic.name %></p>
+      <p><b>Topic type:</b> <%= @topic.topic_type %></p>
+      <p><b>Description:</b> <%= @topic.description %></p>
+      <p><b>Documentation:</b> <%= @topic.documentation %></p>
       
-      <span style="font-size: 1.2em">
-        <%= link_to 'Edit', edit_topic_path(@topic) %>  | 
-        <%= link_to 'Back', topics_path %>  |  
+      <li class="center" style="font-size: 1.2em">
+        <%= link_to 'Back to topics list', topics_path %>  |  
+        <%= link_to 'Edit topic', edit_topic_path(@topic) %>  |
+        <%= link_to 'Remove topic', @topic, :confirm => 'Are you sure?', :method => :delete %>  |
         <%= link_to 'New Note', new_topic_note_path(@topic) %>
-      </span>
-    </aside>
+      </li>
+    </div>
 
-    <div class="span8">
+    <div class="span6">
     <% if @topic.notes.any? %>
-      <h3>Notes (<%= @topic.notes.count %>)</h3>
-      <ol class="notes">
-        <table class="pretty">
-          <tr style="font-size: 1.2em">
+      <h3>Total Notes: <%= @topic.notes.count %></h3>
+    </div>
+    <div class="hero-unit">
+      <table class="pretty">
+          <tr> 
           <th><b>Sequence</b></th>
           <th><b>Note </b></th>
-          <th></th>
-          <th></th>
           <th></th>
         </tr>
     
         <% @notes.each do |note| %>
-          <tr style="font-size: 1.1em">
+          <tr>
             <td><%= note.sequence %></td>
             <td><%= note.text %></td>
-            <td><%= link_to 'Show',   topic_note_path(@topic, note) %></td>
-            <td><%= link_to 'Edit',   edit_topic_note_path(@topic, note) %></td>
-            <td><%= link_to 'Remove', topic_note_path(@topic, note), :confirm => 'Are you sure?', :method => :delete %></td>
+            <td><%= link_to 'Note Details',   topic_note_path(@topic, note) %></td>
           </tr>
         <% end %>
        </table>
-      </ol>
       <%= will_paginate @notes %>
     <% end %>
   </div>

@@ -11,21 +11,15 @@ $rosa: #bb1199;
 }
 /* universal */
 
-html {
+html, body {
   overflow-y: scroll;
+  padding-top: 25px;
+  margin-top: 15px;
+  background: white;    
 }
 
 .navbar-inner {
     background: white;    
-}
-
-body {
-  padding-top: 60px;
-  margin-top: 15px;
-}
-
-section {
-  overflow: auto;
 }
 
 textarea {
@@ -50,6 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  color: #cc3399;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
@@ -59,14 +54,23 @@ h1 {
 h2 {
   font-size: 1.7em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
   font-weight: normal;
   color: $grayLight;
 }
 
+h3 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  text-align: justify;
+  font-weight: normal;
+  color: #cc3399;
+  margin-bottom: 6px;
+}
+
 p {
-  font-size: 1.1em;
+  font-size: 1.4em;
   line-height: 1.7em;
 }
 
@@ -115,32 +119,11 @@ footer {
   }
 }
 
-/* sidebar */
-
-aside {
-  section {
-    padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-    &:first-child {
-      border: 10;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.6em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-top: 15px;
-      margin-bottom: 3px;
-    }
-  }
-}
-
 /* forms */
+form {
+  display: block;
+  font-size: 1.2em;
+}
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
@@ -154,8 +137,24 @@ input {
   height: auto !important;
 }
 
-/* users index */
-
+/* tables */
+.pretty  {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+.pretty th {
+  border: 2px solid black;
+  font-weight: bold;
+  background-color: $grayLighter;
+  font-size: 1.2em;
+  padding: 4px;
+  text-align: left;
+}
+.pretty td {
+  font-size: 1.1em
+}
 .pretty th .current {
   padding-right: 15px;
   background-repeat: no-repeat;
@@ -169,16 +168,6 @@ input {
   background-image: url(down_arrow.gif); 
 }
 
-.topics{
-  list-style: none;
-  margin: 0;
-  tr {
-    overflow: auto;
-    padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-  }
-}
-
 #error_explanation {
   color: #f00;
   ul {
@@ -190,7 +179,7 @@ input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
- }
+}
 
 /* miscellaneous */
 
@@ -202,7 +191,7 @@ input {
   @include box_sizing;
 }
 
-/* microposts */
+/* notes */
 
 .notes {
   list-style: none;
@@ -216,12 +205,4 @@ input {
 .content {
   display: block;
 }
-.timestamp {
-  color: $grayLight;
-}
-aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 5px;
-  }
-}
+
