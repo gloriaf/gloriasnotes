@@ -1,6 +1,11 @@
 class TopicsController < ApplicationController
-
   helper_method :sort_column, :sort_direction, :filter_types
+
+  before_filter :get_topic
+
+  def get_topic
+    @topic = Topic.find(params[:id])
+  end
 
   def new
     @topic = Topic.new
@@ -27,16 +32,14 @@ class TopicsController < ApplicationController
   end
   
   def show
-    @topic = Topic.find(params[:id])
     @notes = @topic.notes.paginate(page: params[:page], per_page: 15)
   end
   
   def edit
-    @topic = Topic.find params[:id]
+    
   end
   
   def update
-    @topic = Topic.find(params[:id])
     if @topic.update_attributes(params[:topic])
 #      flash[:notice] = "#{@topic.name} was successfuly updated"
       redirect_to topic_path(@topic)
