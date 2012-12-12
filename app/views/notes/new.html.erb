@@ -1,7 +1,7 @@
 <% provide(:title, 'New Note') %>
 <h1> New Note about <%= @topic.name%></h1>
 
-<div class="row">
+<div class="row hero-unit">
   <div class="span6 offset3">
     
     <%= form_for [@topic, @note] do |f| %>

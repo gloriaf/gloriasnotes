@@ -1,15 +1,16 @@
 <% provide(:title, 'Edit topic') %>
 <h1> Edit Topic </h1>
-<div class="row">
-  <div class="span6 offset3">
-    
-    <%= form_for(@topic) do |f| %>
-      <%= render 'topic' , f: f %>
-    
-      <%= f.submit "Update topic", class: "btn btn-large btn-primary" %>
-    
-    <% end %>
 
-    <%= render 'back' %>
-  </div>
+<div class="row hero-unit">
+    <div class="span6 offset3">
+    
+      <%= form_for(@topic) do |f| %>
+        <%= render 'topic' , f: f %>
+    
+        <%= f.submit "Update topic", class: "btn btn-large btn-primary" %>
+    
+      <% end %>
+
+      <%= render 'back' %>
+    </div>
 </div>

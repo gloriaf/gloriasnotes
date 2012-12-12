@@ -1,12 +1,12 @@
 <% provide(:title, 'Show note') %>
 <h1>Show Note <%= @note.sequence %> about <%= @topic.name%></h1>
 
-<div class="row">
+<div class="row hero-unit">
     <aside class="span6 offset3">
       <p><b>Sequence:</b> <%= @note.sequence %></p>
       <p><b>Text:</b> <%= @note.text%></p>
-      <p><b>Englis:</b> <%= @note.link1 %></p>
-      <p><b>Spanish:</b> <%= @note.link2 %></p>
+      <p><b>Englis:</b> <%= @note.english %></p>
+      <p><b>Spanish:</b> <%= @note.spanish %></p>
       
       <li style="font-size: 1.2em">
         <%= link_to 'Back to notes list', topic_path(@topic) %>  |  
@@ -14,5 +14,5 @@
         <%= link_to 'Remove note', topic_note_path(@topic, @note), :confirm => 'Are you sure?', :method => :delete %>
       </li>
     </aside>
-</div>    
+</div>
  

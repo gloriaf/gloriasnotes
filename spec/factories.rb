@@ -9,7 +9,7 @@ FactoryGirl.define do
   
 
   factory :note do 
-    sequence(:sequence) {|n| n + 100 }   
+    sequence(:sequence) {|n| n * 10 }   
     text   "description"
     topic
   end

@@ -3,6 +3,11 @@ class NotesController < ApplicationController
   def new
     @topic = Topic.find(params[:topic_id])
     @note = Note.new
+    @note.sequence = 10
+    last=@topic.notes.find(:last, order: "sequence ASC", limit: 1)
+    if last != nil
+      @note.sequence=last.sequence + 10
+    end
   end
   
   def create
@@ -43,4 +48,5 @@ class NotesController < ApplicationController
     flash[:notice] = "Note deleted"
     redirect_to topic_path(@topic)
   end
+  
 end

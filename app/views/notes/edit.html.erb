@@ -1,6 +1,8 @@
 <% provide(:title, 'Edit Note') %>
 <h1> Edit Note <%= @note.sequence %> about <%= @topic.name%></h1>
-<div class="row">
+
+<div class="row hero-unit">
+
   <div class="span6 offset3">
     
     <%= form_for [@topic, @note] do |f| %>

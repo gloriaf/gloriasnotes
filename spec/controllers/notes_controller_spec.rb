@@ -5,6 +5,22 @@ describe NotesController do
     @topic=FactoryGirl.create(:topic)
   end
   
+  describe "note#new GET new" do
+    before do
+      @note  = FactoryGirl.create(:note, topic: @topic)
+      @note.save!
+      get :new, topic_id: @topic.id
+    end
+    
+    it "should create a new object" do
+      assigns(:note).should_not be_nil  
+    end
+    it "should have de correct sequence to de topic" do
+      note=assigns(:note)
+      note.sequence.should eq(@note.sequence + 10)
+    end
+  end
+  
   describe "note#create - POST create" do
     
     context "whit valid attributes" do
@@ -55,9 +71,19 @@ describe NotesController do
     end
   end
 
+  describe "note#edit" do
+    before :each do
+      @note = FactoryGirl.create(:note, topic: @topic)
+    end
+    it "located the requested @note" do
+      put :edit, topic_id: @topic.id, id: @note.id, note: FactoryGirl.attributes_for(:note)
+      assigns(:note).should eq(@note)
+    end
+  end
+
   describe "note#edit - PUT update" do
     before :each do
-      @note  = FactoryGirl.create(:note, topic: @topic)
+      @note = FactoryGirl.create(:note, topic: @topic)
     end
     
     context "valid attributes" do

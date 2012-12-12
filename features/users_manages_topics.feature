@@ -14,7 +14,7 @@ Feature: User manges topics
         Given I go to the new topic page
 #	Then show me the page
 	And I fill in "Name" with "git"
-	And I fill in "Topic type" with "Tool"
+	And I select "Tool" from "Topic type" 
 	And I fill in "Description" with "Version control"
 	When I press "Create"
 	Then I should be on the topic list page
@@ -22,8 +22,7 @@ Feature: User manges topics
 
     Scenario: User not add a new topic	    
         Given I go to the new topic page
-	And I fill in "Name" with "Test"
-	And I fill in "Topic type" with "blank"
+	And I fill in "Name" with ""
 	When I press "Create"
 	Then I should be on the new page
 	And I should not see "Test"
