@@ -1,11 +1,10 @@
 class NotesController < ApplicationController
   before_filter :get_topic
-  before_filter :get_note, :only => [:show, :edit, :update]
+  before_filter :get_note, :only => [:show, :edit, :update, :destroy]
   
   def get_topic
     @topic = Topic.find(params[:topic_id])
   end
-  
   def get_note
     @note = @topic.notes.find(params[:id]) 
   end
@@ -30,11 +29,9 @@ class NotesController < ApplicationController
   end
   
   def show
-    
   end
   
   def edit
-    
   end
   
     def update
@@ -47,7 +44,7 @@ class NotesController < ApplicationController
   end
   
   def destroy
-    @topic.notes.find(params[:id]).destroy
+    @note.destroy
     flash[:notice] = "Note deleted"
     redirect_to topic_path(@topic)
   end

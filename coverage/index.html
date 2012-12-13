@@ -14,26 +14,26 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-12-12T15:22:09+01:00">2012-12-12T15:22:09+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-12-13T09:24:32+01:00">2012-12-13T09:24:32+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">95.05%</span></span>
+    (<span class="covered_percent"><span class="green">94.9%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.33
+         2.4
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>8</b> files in total.
-    <b>101</b> relevant lines. 
-    <span class="green"><b>96</b> lines covered</span> and
+    <b>98</b> relevant lines. 
+    <span class="green"><b>93</b> lines covered</span> and
     <span class="red"><b>5</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -64,10 +64,10 @@
         <td class="strong"><a href="#a0ecc8ec4022078a37094071fcd25c44fa4e5d9b" class="src_link" title="app/controllers/notes_controller.rb">app/controllers/notes_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>52</td>
-        <td>33</td>
-        <td>33</td>
+        <td>30</td>
+        <td>30</td>
         <td>0</td>
-        <td>2.3</td>
+        <td>2.8</td>
       </tr>
       
       <tr>
@@ -87,7 +87,7 @@
         <td>34</td>
         <td>34</td>
         <td>0</td>
-        <td>3.4</td>
+        <td>3.5</td>
       </tr>
       
       <tr>
@@ -143,15 +143,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.92
+         2.08
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>4</b> files in total.
-    <b>74</b> relevant lines. 
-    <span class="green"><b>74</b> lines covered</span> and
+    <b>71</b> relevant lines. 
+    <span class="green"><b>71</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -182,10 +182,10 @@
         <td class="strong"><a href="#a0ecc8ec4022078a37094071fcd25c44fa4e5d9b" class="src_link" title="app/controllers/notes_controller.rb">app/controllers/notes_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>52</td>
-        <td>33</td>
-        <td>33</td>
+        <td>30</td>
+        <td>30</td>
         <td>0</td>
-        <td>2.3</td>
+        <td>2.8</td>
       </tr>
       
       <tr>
@@ -205,7 +205,7 @@
         <td>34</td>
         <td>34</td>
         <td>0</td>
-        <td>3.4</td>
+        <td>3.5</td>
       </tr>
       
     </tbody>
@@ -489,8 +489,8 @@
     <h3>app/controllers/notes_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>33</b> relevant lines. 
-      <span class="green"><b>33</b> lines covered</span> and
+      <b>30</b> relevant lines. 
+      <span class="green"><b>30</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -504,184 +504,184 @@
           <code class="ruby">class NotesController &lt; ApplicationController</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="2">
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  </code>
+          <code class="ruby">  before_filter :get_topic</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">  def new</code>
+          <code class="ruby">  before_filter :get_note, :only =&gt; [:show, :edit, :update, :destroy]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="4">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def get_topic</code>
+        </li>
+      
+        <li class="covered" data-hits="16" data-linenumber="6">
+          <span class="hits">16</span>
           
           <code class="ruby">    @topic = Topic.find(params[:topic_id])</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="5">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="7">
           
-          <code class="ruby">    @note = Note.new</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="6">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
           
-          <code class="ruby">    @note.sequence = 10</code>
+          <code class="ruby">  def get_note</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="7">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="9" data-linenumber="9">
+          <span class="hits">9</span>
           
-          <code class="ruby">    last=@topic.notes.find(:last, order: &quot;sequence ASC&quot;, limit: 1)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="8">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    if last != nil</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="9">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      @note.sequence=last.sequence + 10</code>
+          <code class="ruby">    @note = @topic.notes.find(params[:id]) </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
-          
-          
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">  def create</code>
+          <code class="ruby">  def new</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="14">
-          <span class="hits">5</span>
-          
-          <code class="ruby">    @topic = Topic.find(params[:topic_id])</code>
-        </li>
-      
-        <li class="covered" data-hits="5" data-linenumber="15">
-          <span class="hits">5</span>
-          
-          <code class="ruby">    @note = @topic.notes.build(params[:note])</code>
-        </li>
-      
-        <li class="covered" data-hits="5" data-linenumber="16">
-          <span class="hits">5</span>
-          
-          <code class="ruby">    if @note.save</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="17">
-          <span class="hits">3</span>
-          
-          <code class="ruby">      flash[:success] = &quot;Note created!&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="18">
-          <span class="hits">3</span>
-          
-          <code class="ruby">      redirect_to topic_path(@topic)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="20">
+        <li class="covered" data-hits="2" data-linenumber="13">
           <span class="hits">2</span>
           
-          <code class="ruby">      render :new</code>
+          <code class="ruby">    @note = Note.new</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="covered" data-hits="2" data-linenumber="14">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    @note.sequence = 10</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="15">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    last=@topic.notes.find(:last, order: &quot;sequence DESC&quot;, limit: 1)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    if last != nil</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="17">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      @note.sequence=last.sequence + 10</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="24">
+        <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
-          <code class="ruby">  def show</code>
+          <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="5" data-linenumber="22">
+          <span class="hits">5</span>
           
-          <code class="ruby">    @topic = Topic.find(params[:topic_id])</code>
+          <code class="ruby">    @note = @topic.notes.build(params[:note])</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="26">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="5" data-linenumber="23">
+          <span class="hits">5</span>
           
-          <code class="ruby">    @note = @topic.notes.find(params[:id])</code>
+          <code class="ruby">    if @note.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="covered" data-hits="3" data-linenumber="24">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      flash[:success] = &quot;Note created!&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="25">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      redirect_to topic_path(@topic)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="27">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      render :new</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
           
           
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
           <code class="ruby">  </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def edit</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="30">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    @topic = Topic.find(params[:topic_id])</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="31">
           <span class="hits">1</span>
           
-          <code class="ruby">    @note = @topic.notes.find(params[:id])</code>
+          <code class="ruby">  def show</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
@@ -699,85 +699,85 @@
         <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
-          <code class="ruby">    def update</code>
+          <code class="ruby">  def edit</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="35">
-          <span class="hits">5</span>
-          
-          <code class="ruby">      @topic = Topic.find(params[:topic_id])</code>
-        </li>
-      
-        <li class="covered" data-hits="5" data-linenumber="36">
-          <span class="hits">5</span>
-          
-          <code class="ruby">      @note = @topic.notes.find(params[:id])</code>
-        </li>
-      
-        <li class="covered" data-hits="5" data-linenumber="37">
-          <span class="hits">5</span>
-          
-          <code class="ruby">      if @note.update_attributes(params[:note])</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="38">
-          <span class="hits">3</span>
-          
-          <code class="ruby">        flash[:notice] = &quot;The note #{@note.sequence} was successfuly updated&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="39">
-          <span class="hits">3</span>
-          
-          <code class="ruby">        redirect_to topic_note_path(@topic, @note)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
-          
-          
-          <code class="ruby">      else</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="41">
-          <span class="hits">2</span>
-          
-          <code class="ruby">        render :edit</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="never" data-hits="" data-linenumber="35">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="45">
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def update</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="38">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      if @note.update_attributes(params[:note])</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="39">
+          <span class="hits">3</span>
+          
+          <code class="ruby">        flash[:notice] = &quot;The note #{@note.sequence} was successfuly updated&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="40">
+          <span class="hits">3</span>
+          
+          <code class="ruby">        redirect_to topic_note_path(@topic, @note)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">      else</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="42">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        render :edit</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
           <span class="hits">1</span>
           
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="46">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    @topic = Topic.find(params[:topic_id])</code>
-        </li>
-      
         <li class="covered" data-hits="2" data-linenumber="47">
           <span class="hits">2</span>
           
-          <code class="ruby">    @topic.notes.find(params[:id]).destroy</code>
+          <code class="ruby">    @note.destroy</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="48">
@@ -942,16 +942,16 @@
           <code class="ruby">class TopicsController &lt; ApplicationController</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="2">
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  helper_method :sort_column, :sort_direction, :filter_types</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">  helper_method :sort_column, :sort_direction, :filter_types</code>
+          <code class="ruby">  before_filter :get_topic, :only =&gt; [:show, :edit, :update, :destroy]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
@@ -963,13 +963,13 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">  def new</code>
+          <code class="ruby">  def get_topic</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="12" data-linenumber="6">
+          <span class="hits">12</span>
           
-          <code class="ruby">    @topic = Topic.new</code>
+          <code class="ruby">    @topic = Topic.find(params[:id])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
@@ -981,193 +981,193 @@
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby">  </code>
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
+          <code class="ruby">  def new</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    @topic = Topic.new</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
+          
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="10">
+        <li class="covered" data-hits="4" data-linenumber="14">
           <span class="hits">4</span>
           
           <code class="ruby">    @topic = Topic.new(params[:topic])</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="11">
+        <li class="covered" data-hits="4" data-linenumber="15">
           <span class="hits">4</span>
           
           <code class="ruby">    if @topic.save</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="12">
+        <li class="covered" data-hits="2" data-linenumber="16">
           <span class="hits">2</span>
           
           <code class="ruby">      redirect_to topics_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="14">
+        <li class="covered" data-hits="2" data-linenumber="18">
           <span class="hits">2</span>
           
           <code class="ruby">      render new_topic_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">    end  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="17">
-          
-          
-          <code class="ruby">  </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="18">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def index</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="19">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    @all_topic_types = Topic.all_topic_types</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="20">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    @selected_topic_types = params[:topics_types] || {}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
           
           
-          <code class="ruby">    </code>
+          <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="22">
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def index</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="23">
           <span class="hits">8</span>
           
-          <code class="ruby">    if @selected_topic_types == {}</code>
+          <code class="ruby">    @all_topic_types = Topic.all_topic_types</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="23">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="8" data-linenumber="24">
+          <span class="hits">8</span>
           
-          <code class="ruby">      @selected_topic_types = Hash[ @all_topic_types.map { |type| [type, type]}]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="24">
-          
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">    @selected_topic_types = params[:topics_types] || {}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    </code>
         </li>
       
         <li class="covered" data-hits="8" data-linenumber="26">
           <span class="hits">8</span>
           
-          <code class="ruby">    @topics = Topic.find_all_by_topic_type(@selected_topic_types.keys, :order =&gt; sort_column + ' ' + sort_direction )</code>
+          <code class="ruby">    if @selected_topic_types == {}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="covered" data-hits="10" data-linenumber="27">
+          <span class="hits">10</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">      @selected_topic_types = Hash[ @all_topic_types.map { |type| [type, type]}]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
           
           
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="29">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    @topics = Topic.find_all_by_topic_type(@selected_topic_types.keys, :order =&gt; sort_column + ' ' + sort_direction )</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
+        <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="30">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @topic = Topic.find(params[:id])</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="31">
+        <li class="covered" data-hits="3" data-linenumber="33">
           <span class="hits">3</span>
           
           <code class="ruby">    @notes = @topic.notes.paginate(page: params[:page], per_page: 15)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="34">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="35">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="34">
+        <li class="covered" data-hits="1" data-linenumber="36">
           <span class="hits">1</span>
           
           <code class="ruby">  def edit</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="35">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    @topic = Topic.find params[:id]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="37">
+        <li class="never" data-hits="" data-linenumber="38">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
+        <li class="covered" data-hits="1" data-linenumber="39">
           <span class="hits">1</span>
           
           <code class="ruby">  def update</code>
-        </li>
-      
-        <li class="covered" data-hits="6" data-linenumber="39">
-          <span class="hits">6</span>
-          
-          <code class="ruby">    @topic = Topic.find(params[:id])</code>
         </li>
       
         <li class="covered" data-hits="6" data-linenumber="40">

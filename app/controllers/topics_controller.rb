@@ -1,7 +1,6 @@
 class TopicsController < ApplicationController
   helper_method :sort_column, :sort_direction, :filter_types
-
-  before_filter :get_topic
+  before_filter :get_topic, :only => [:show, :edit, :update, :destroy]
 
   def get_topic
     @topic = Topic.find(params[:id])
@@ -27,7 +26,6 @@ class TopicsController < ApplicationController
     if @selected_topic_types == {}
       @selected_topic_types = Hash[ @all_topic_types.map { |type| [type, type]}]
     end
-
     @topics = Topic.find_all_by_topic_type(@selected_topic_types.keys, :order => sort_column + ' ' + sort_direction )
   end
   
@@ -36,7 +34,6 @@ class TopicsController < ApplicationController
   end
   
   def edit
-    
   end
   
   def update
