@@ -1,13 +1,13 @@
       <%= render 'shared/error_messages', object: f.object %>
      
       <%= f.label :sequence %>
-      <%= f.text_field :sequence %>
+      <%= f.number_field :sequence %>
      
       <%= f.label :text %>
-      <%= f.text_field :text %>
+      <%= f.text_field:text %>
      
       <%= f.label :english %>
-      <%= f.text_field :english %>
+      <%= f.text_area :english, :rows => "5" %>
     
       <%= f.label :spanish %>
-      <%= f.text_field :spanish %>
+      <%= f.text_area :spanish, :rows => "5" %>
