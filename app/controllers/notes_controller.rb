@@ -11,7 +11,7 @@ class NotesController < ApplicationController
   
   def new
     @note = Note.new
-    last=@topic.notes.find(:last, order: "sequence ASC", limit: 1)
+    last=@topic.notes.find(:last)
     if last != nil
       @note.sequence=last.sequence + 10
     else
